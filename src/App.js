@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { voteUp } from './redux/modules/idea';
 
 import logo from './logo.svg';
 import './App.css';
 
+import { createStore } from 'redux'
+const reducer = require('./redux/modules/reducer').default;
+let store = createStore(reducer)
+
 class App extends Component {
   render() {
     return (
-      <Provider>
+      <Provider store={store}>
         <div className="App">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
