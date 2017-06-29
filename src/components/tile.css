@@ -1,3 +1,59 @@
 .tile {
+  flex: 0 1 33%;
+  margin: 8px;
+  padding: 20px;
+  border: 6px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: white;
+  background-color: #07aab0;
+  box-shadow: 10px 10px 5px #888888;
+  transition: flex .5s;
+}
 
+.tile:hover {
+  flex: 0 1 40%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.author {
+  text-align: right;
+  margin-bottom: 0px;
+}
+
+.description {
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.status-container {
+  display: flex;
+  margin-bottom: 0;
+  margin-top: 32px;
+}
+
+.votes {
+  flex: 1 0 50%;
+  margin: 0;
+}
+
+.status {
+  flex: 1 0 50%;
+  margin: 0;
+}
+
+.type {
+  text-align: right;
+  margin: 0;
 }
