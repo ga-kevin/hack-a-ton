@@ -1,3 +1,4 @@
+export const HYDRATE_TILES = 'redux/idea/HYDRATE_TILES';
 export const VOTE_UP = 'redux/idea/VOTE_UP';
 export const VOTE_DOWN = 'redux/idea/VOTE_DOWN';
 
@@ -7,9 +8,8 @@ const defaultState = {
 
 export default function reducer(state = defaultState, action = {}) {
   switch (action.type) {
-    case VOTE_UP:
+    case HYDRATE_TILES:
       return {
-        ...state,
         ideas: [
           {
             id: 0,
@@ -36,15 +36,35 @@ export default function reducer(state = defaultState, action = {}) {
             },
           }
         ]
+    }
+    case VOTE_UP:
+      return {}
+    case VOTE_DOWN:
+      return {
+        ...state,
+
       };
     default:
       return state;
   }
 }
 
+export function hydrateTiles() {
+  return {
+    type: HYDRATE_TILES
+  }
+}
+
 export function voteUp(id) {
   return {
     type: VOTE_UP,
+    id
+  }
+}
+
+export function voteDown(id) {
+  return {
+    type: VOTE_DOWN,
     id
   }
 }

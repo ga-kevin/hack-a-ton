@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { voteUp } from '../redux/modules/idea';
+import { hydrateTiles, voteUp, voteDown } from '../redux/modules/idea';
 import './TileView.css';
 import Tile from '../components/Tile'
 
@@ -20,7 +20,7 @@ class TileView extends Component {
   }
 
   componentDidMount() {
-    this.props.voteUp();
+    this.props.hydrateTiles();
   }
 
   renderTiles = () => {
@@ -45,7 +45,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    voteUp: () => dispatch(voteUp())
+    hydrateTiles: () => dispatch(hydrateTiles()),
+    voteUp: () => dispatch(voteUp()),
+    voteDown: () => dispatch(voteDown())
   }
 }
 
