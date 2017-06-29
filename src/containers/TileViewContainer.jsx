@@ -25,7 +25,7 @@ class TileView extends Component {
 
   renderTiles = () => {
     const { ideas } = this.props
-    return ideas.map(idea => <Tile idea={idea} />)
+    return ideas.map(idea => <Tile idea={idea} key={idea.id}/>)
   }
 
   render() {

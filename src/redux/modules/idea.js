@@ -38,12 +38,13 @@ export default function reducer(state = defaultState, action = {}) {
         ]
     }
     case VOTE_UP:
-      return {}
+      return {
+        ...state,
+      }
     case VOTE_DOWN:
       return {
         ...state,
-
-      };
+      }
     default:
       return state;
   }
