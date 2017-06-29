@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import './TileView.css';
 
+import Tile from '../components/Tile'
 
 class TileView extends Component {
   state = {
@@ -32,23 +34,10 @@ class TileView extends Component {
     ]
   }
 
-  buildTile = (idea) => {
-    return (
-      <div className="tile">
-        <div className="info">
-          <h1 className="title">{idea.title}</h1>
-          <p className="description">{idea.desc}</p>
-          <p className="author">{idea.author}</p>
-          <p className="type">{idea.type}</p>
-          <p className="votes">{idea.votes}</p>
-        </div>
-      </div>
-    )
-  }
 
   renderTiles = () => {
     const { ideas } = this.state
-    return ideas.map(idea => this.buildTile(idea))
+    return ideas.map((idea) => <Tile idea={idea} />)
   }
 
   render() {
