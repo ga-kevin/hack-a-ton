@@ -1,37 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { voteUp } from '../redux/modules/idea';
 
 class TileView extends Component {
-  state = {
-    ideas: [
-      {
-        id: 0,
-        title: 'title',
-        desc: 'description',
-        author: 'author',
-        type: 'build',
-        votes: 0,
-        progress: {
-          members: [],
-          status: 0
-        },
-      },
-      {
-        id: 1,
-        title: 'title2',
-        desc: 'description2',
-        author: 'author2',
-        type: 'proposal',
-        votes: 0,
-        progress: {
-          members: [],
-          status: 0
-        },
-      }
-    ]
-  }
-
   buildTile = (idea) => {
     return (
       <div className="tile">
@@ -47,23 +18,29 @@ class TileView extends Component {
   }
 
   renderTiles = () => {
-    const { ideas } = this.state
+    const { ideas } = this.props
     return ideas.map(idea => this.buildTile(idea))
   }
 
   render() {
     return (
       <div className="tile-view">
-        {this.renderTiles()}
+        {this.props.ideas && this.renderTiles()}
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return (
-    {}
-  )
+  return {
+    ideas: state.idea.ideas
+  }
 }
 
-export default connect(mapStateToProps, null)(TileView);
+function mapDispatchToProps(dispatch) {
+  return {
+    voteUp: () => dispatch(voteUp())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TileView);

@@ -24,7 +24,33 @@ export default function reducer(state = defaultState, action = {}) {
   switch (action.type) {
     case VOTE_UP:
       return {
-        ...state
+        ...state,
+        ideas: [
+          {
+            id: 0,
+            title: 'title',
+            desc: 'description',
+            author: 'author',
+            type: 'build',
+            votes: 0,
+            progress: {
+              members: [],
+              status: 0
+            },
+          },
+          {
+            id: 1,
+            title: 'title2',
+            desc: 'description2',
+            author: 'author2',
+            type: 'proposal',
+            votes: 0,
+            progress: {
+              members: [],
+              status: 0
+            },
+          }
+        ]
       };
     default:
       return state;

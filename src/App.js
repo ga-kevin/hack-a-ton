@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-
-import logo from './logo.svg';
 import './App.css';
-
 import TileViewContainer from './containers/TileViewContainer'
 
 import { createStore } from 'redux'
