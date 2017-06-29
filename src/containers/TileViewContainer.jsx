@@ -19,6 +19,10 @@ class TileView extends Component {
     )
   }
 
+  componentDidMount() {
+    this.props.voteUp();
+  }
+
   renderTiles = () => {
     const { ideas } = this.props
     return ideas.map(idea => <Tile idea={idea} />)
